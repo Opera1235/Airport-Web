@@ -4,7 +4,7 @@ import { validateFlight } from '../utils/validators.js';
 const STORAGE_KEY = 'airport_flights';
 const NEXT_ID_KEY = 'airport_next_id';
 
-// 从localStorage加载数据，如果没有则使用初始数据
+// 從 localStorage 載入資料，如果沒有則使用初始資料
 function loadFlights() {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -17,7 +17,7 @@ function loadFlights() {
   return [...initialFlights];
 }
 
-// 保存数据到localStorage
+// 儲存資料到 localStorage
 function saveFlights(flights) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(flights));
@@ -26,7 +26,7 @@ function saveFlights(flights) {
   }
 }
 
-// 获取下一个ID
+// 獲取下一個 ID
 function getNextId() {
   try {
     const stored = localStorage.getItem(NEXT_ID_KEY);
@@ -41,7 +41,7 @@ function getNextId() {
   return maxId + 1;
 }
 
-// 保存下一个ID
+// 儲存下一個 ID
 function saveNextId(id) {
   try {
     localStorage.setItem(NEXT_ID_KEY, id.toString());
@@ -50,7 +50,7 @@ function saveNextId(id) {
   }
 }
 
-// 获取所有航班（带过滤和排序）
+// 獲取所有航班（帶過濾和排序）
 export function getFlights(params = {}) {
   return new Promise((resolve) => {
     let filteredFlights = [...loadFlights()];
@@ -90,14 +90,14 @@ export function getFlights(params = {}) {
       });
     }
 
-    // 模拟API延迟
+    // 模擬 API 延遲
     setTimeout(() => {
       resolve(filteredFlights);
     }, 100);
   });
 }
 
-// 根据ID获取单个航班
+// 根據 ID 獲取單一航班
 export function getFlightById(id) {
   return new Promise((resolve, reject) => {
     const flights = loadFlights();
@@ -113,7 +113,7 @@ export function getFlightById(id) {
   });
 }
 
-// 创建新航班
+// 創建新航班
 export function createFlight(flightData) {
   return new Promise((resolve, reject) => {
     const validation = validateFlight(flightData, false);
@@ -201,7 +201,7 @@ export function updateFlight(id, flightData) {
   });
 }
 
-// 删除航班
+// 刪除航班
 export function deleteFlight(id) {
   return new Promise((resolve, reject) => {
     const flights = loadFlights();

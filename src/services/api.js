@@ -1,4 +1,4 @@
-// 使用本地数据存储服务替代HTTP API
+// 使用本地資料儲存服務替代 HTTP API
 import {
   getFlights as fetchFlightsFromStore,
   getFlightById as fetchFlightByIdFromStore,
@@ -7,7 +7,7 @@ import {
   deleteFlight as deleteFlightFromStore,
 } from './flightStore.js';
 
-// 为了保持与原有API接口的兼容性，使用相同的函数名
+// 為了保持與原有 API 介面的相容性，使用相同的函數名
 export const fetchFlights = async (params = {}) => {
   try {
     return await fetchFlightsFromStore(params);
