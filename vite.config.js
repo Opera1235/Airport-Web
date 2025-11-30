@@ -6,7 +6,7 @@ import vue from '@vitejs/plugin-vue';
 // 如果是根路径，则base应该是 '/'
 export default defineConfig({
   plugins: [vue()],
-  base: '/',
+  base: '/Airport-Web/',
   server: {
     port: 5173,
   },
